@@ -43,13 +43,13 @@ class StudentTest < ActiveSupport::TestCase
       Student.create!(first_name: "Nikola1", last_name: "Jokic", school_email: "nikola@msudenver.edu", major: "CS", graduation_date: 2025-05-05)
     end
   end
-=begin
-  test "" do
+
+  test "Saving last_name with a digit" do
     assert_raises ActiveRecord::RecordInvalid do 
-      Student.create!(first_name: "Jokic", school_email: "jokic@msudenver.edu", major: "CS")
+      Student.create!(first_name: "Nikola", last_name: "Jokic1", school_email: "nikola@msudenver.edu", major: "CS", graduation_date: 2025-05-05)
     end
   end
-=end  
+
   # test "the truth" do
   #   assert true
   # end
