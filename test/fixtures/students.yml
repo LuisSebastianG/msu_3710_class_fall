@@ -3,7 +3,7 @@
 one:
   first_name: MyString
   last_name: MyString
-  school_email: MyString
+  school_email: jokic@msudenver.edu
   major: MyString
   minor: MyString
   graduation_date: 2024-09-19

@@ -26,18 +26,18 @@ class StudentTest < ActiveSupport::TestCase
   end
 
    test "Saving student with non-unique email" do
+    student = students(:one)
     assert_raises ActiveRecord::RecordInvalid do 
       Student.create!(first_name: "Nikola", last_name: "Jokic", school_email: "jokic@msudenver.edu", major: "CS")
-      Student.create!(first_name: "Jamal", last_name: "Murray", school_email: "jokic@msudenver.edu", major: "CS")
-    end
-  end
-=begin
-  test "" do
-    assert_raises ActiveRecord::RecordInvalid do 
-      Student.create!(first_name: "Jokic", school_email: "jokic@msudenver.edu", major: "CS")
     end
   end
 
+  test "Saving student without grad date" do
+    assert_raises ActiveRecord::RecordInvalid do 
+      Student.create!(first_name: "Nikola", last_name: "Jokic", school_email: "nikola@msudenver.edu", major: "CS")
+    end
+  end
+=begin
   test "" do
     assert_raises ActiveRecord::RecordInvalid do 
       Student.create!(first_name: "Jokic", school_email: "jokic@msudenver.edu", major: "CS")
@@ -53,11 +53,4 @@ class StudentTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
-end
-
-class Student < ApplicationRecord
-  validates :first_name, presence: true, uniqueness: true
-  validates :last_name, presence: true
-  validates :school_email, presence: true
-  validates :major, presence: true
 end
