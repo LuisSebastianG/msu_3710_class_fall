@@ -1,4 +1,9 @@
 <div id="<%= dom_id student %>">
+
+  <p>
+    <%= image_tag student.profile_picture.variant(resize_to_limit: [150, nil]) %>
+  </p>
+
   <p>
     <strong>First name:</strong>
     <%= student.first_name %>
