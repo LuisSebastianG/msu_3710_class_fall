@@ -1,7 +1,7 @@
 <div id="<%= dom_id student %>">
 
   <p>
-    <%= image_tag student.profile_picture.variant(resize_to_limit: [150, nil]) %>
+    <%= image_tag student.profile_picture.attached? ? url_for(student.profile_picture.variant(resize_to_limit: [150, nil])) : asset_path('default_profile_pic.jpg'), alt:"Profile Picture" %>
   </p>
 
   <p>

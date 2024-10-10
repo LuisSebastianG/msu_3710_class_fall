@@ -8,6 +8,14 @@ class Student < ApplicationRecord
     validates :graduation_date, presence: true
     validate :acceptable_image
 
+    def default_profile_pic
+        if profile_picture.attached?
+            profile_picture
+        else
+            'portfolio_app\app\assets\images\default_profile_pic.jpg'
+        end
+    end
+
     def acceptable_image
         return unless profile_picture.attached?
 
