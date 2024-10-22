@@ -1,0 +1,60 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "students/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+
+    <div class="form-group">
+    <%= f.label :profile_picture, 'Profile Picture', aria: {label: 'Profile Picture'} %>
+    <%= f.file_field :profile_picture, class: "form-control-file", aria: {label: 'Enter Profile Picture'} %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :first_name, 'First Name', class: "d-block", aria: {label: 'First Name'} %>
+    <%= f.text_field :first_name, class: "form-control", aria: {label: 'Enter First Name'} %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :last_name, 'Last Name', class: "d-block", aria: {label: 'Last Name'} %>
+    <%= f.text_field :last_name, class: "form-control", aria: {label: 'Enter Last Name'} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :major, 'Major', class: "d-block", aria: {label: 'Select Majors'} %>
+    <%= f.select :major, options_for_select(Student::VALID_MAJORS), {prompt: "Select a Major"}, class: "form-control", aria: {labelledby: 'Major'} %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :minor, 'Minor', class: "d-block", aria: {label: 'Minor'} %>
+    <%= f.text_field :minor, class: "form-control", aria: {label: 'Enter Minor'} %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :graduation_date, 'Graduation Date', class: "form-label", aria: {label: 'Enter Graduation Date'} %>
+    <%= f.date_field :graduation_date, name: 'search[graduation_date]', class: "form-control", aria: {labelledby: 'Graduation Date'} %>
+  </div>
+
+<% end %>
+
+<%= render "students/shared/links" %>
