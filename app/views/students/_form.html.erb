@@ -1,52 +1,54 @@
 <%= form_with(model: student) do |form| %>
   <% if student.errors.any? %>
-    <div style="color: red">
+  
+    <div class="alert alert-danger">
       <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
-
       <ul>
         <% student.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
+  
   <% end %>
-
-  <div>
+  
+  <div class="form-group">
     <%= form.label :profile_picture %>
-    <%= form.file_field :profile_picture %>
+    <%= form.file_field :profile_picture, class: "form-control-file" %>
   </div>
-
-  <div>
-    <%= form.label :first_name, style: "display: block" %>
-    <%= form.text_field :first_name %>
+  
+  <div class="form-group">
+    <%= form.label :first_name, class: "d-block" %>
+    <%= form.text_field :first_name, class: "form-control" %>
   </div>
-
-  <div>
-    <%= form.label :last_name, style: "display: block" %>
-    <%= form.text_field :last_name %>
+  
+  <div class="form-group">
+    <%= form.label :last_name, class: "d-block" %>
+    <%= form.text_field :last_name, class: "form-control" %>
   </div>
-
-  <div>
-    <%= form.label :school_email, style: "display: block" %>
-    <%= form.text_field :school_email %>
+  
+  <div class="form-group">
+    <%= form.label :school_email, class: "d-block" %>
+    <%= form.text_field :school_email, class: "form-control" %>
   </div>
-
-  <div>
-    <%= form.label :major, style: "display: block"%>
+  
+  <div class="form-group">
+    <%= form.label :major, class: "d-block" %>
     <%= form.select :major, options_for_select(Student::VALID_MAJORS), {prompt: "Select a Major"}, class: "form-control" %>
   </div>
-
-  <div>
-    <%= form.label :minor, style: "display: block" %>
-    <%= form.text_field :minor %>
+  
+  <div class="form-group">
+    <%= form.label :minor, class: "d-block" %>
+    <%= form.text_field :minor, class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :graduation_date, class: "d-block" %>
+    <%= form.date_field :graduation_date, class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.submit nil, class: "btn btn-info" %>
   </div>
 
-  <div>
-    <%= form.label :graduation_date, style: "display: block" %>
-    <%= form.date_field :graduation_date %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>

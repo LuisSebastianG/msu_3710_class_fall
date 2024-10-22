@@ -1,37 +1,20 @@
-<div id="<%= dom_id student %>">
+<div id="<%= dom_id student %>" class="card mb-4">
+  <div class="card-body text-center">
+  
+    <p>
+      <%= image_tag student.profile_picture.attached? ? url_for(student.profile_picture.variant(resize_to_limit: [150, nil])) : asset_path('default_profile_pic.jpg'), class: "img-thumbnail", alt:"Profile Picture", width: "150" %>
+    </p>
+    <p><strong>First name:</strong> <%= student.first_name %></p>
 
-  <p>
-    <%= image_tag student.profile_picture.attached? ? url_for(student.profile_picture.variant(resize_to_limit: [150, nil])) : asset_path('default_profile_pic.jpg'), alt:"Profile Picture", width: "150" %>
-  </p>
+    <p><strong>Last name:</strong> <%= student.last_name %></p>
 
-  <p>
-    <strong>First name:</strong>
-    <%= student.first_name %>
-  </p>
-
-  <p>
-    <strong>Last name:</strong>
-    <%= student.last_name %>
-  </p>
-
-  <p>
-    <strong>School email:</strong>
-    <%= student.school_email %>
-  </p>
-
-  <p>
-    <strong>Major:</strong>
-    <%= student.major %>
-  </p>
-
-  <p>
-    <strong>Minor:</strong>
-    <%= student.minor %>
-  </p>
-
-  <p>
-    <strong>Graduation date:</strong>
-    <%= student.graduation_date %>
-  </p>
-
+    <p><strong>School email:</strong> <%= student.school_email %></p>
+    
+    <p><strong>Major:</strong> <%= student.major %></p>
+    
+    <p><strong>Minor:</strong> <%= student.minor %></p>
+    
+    <p><strong>Graduation date:</strong> <%= student.graduation_date %></p>
+  
+  </div>
 </div>

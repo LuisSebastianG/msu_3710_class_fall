@@ -1,18 +1,31 @@
-<p style="color: green"><%= notice %></p>
+<% if notice.present? %>  
+
+  <div class="alert alert-success">
+    <%= notice %>  
+  </div>
+
+<% end %>
 
 <h1>Students</h1>
 
-<%=render 'search_form', search_params:@search_params %>
+<%= render 'search_form', search_params: @search_params %>
 
-<div id="students">
+<div id="students" class="container">
+
   <% if @students.present? %>
-    <% @students.each do |student| %>
-      <%= render student %>
-      <p>
-        <%= link_to "Show this student", student %>
-      </p>
-    <% end %>
-  <% end %>
-</div>
 
-<%= link_to "New student", new_student_path %>
+    <% @students.each do |student| %>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <%= render student %>
+          <a href="<%= student_path(student) %>" class="btn btn-success">Show this student</a>
+        </div>
+      </div>
+
+    <% end %>
+
+  <% end %>
+
+  <a href="<%= new_student_path %>" class="btn btn-warning">New student</a>
+</div>
