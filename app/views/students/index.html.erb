@@ -1,6 +1,6 @@
 <% if notice.present? %>  
 
-  <div class="alert alert-success">
+  <div class="alert alert-success" aria-live="polite">
     <%= notice %>  
   </div>
 
@@ -19,7 +19,7 @@
       <div class="card mb-4">
         <div class="card-body">
           <%= render student %>
-          <a href="<%= student_path(student) %>" class="btn btn-success">Show this student</a>
+          <a href="<%= student_path(student) %>" class="btn btn-success" aria-label="Show details for this student">Show this student</a>
         </div>
       </div>
 
@@ -27,5 +27,5 @@
 
   <% end %>
 
-  <a href="<%= new_student_path %>" class="btn btn-warning">New student</a>
+  <a href="<%= new_student_path %>" class="btn btn-warning" aria-label="Create a new student">New student</a>
 </div>

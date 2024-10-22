@@ -1,6 +1,6 @@
 <% if notice.present? %>
 
-  <div class="alert alert-success">
+  <div class="alert alert-success" aria-live="polite">
     <%= notice %>
   </div>
 
@@ -13,8 +13,7 @@
 </div>
 
 <div class="d-flex justify-content-between">
-  <%= link_to "Edit this student", edit_student_path(@student), class: "btn btn-primary" %>
-  <%= link_to "Back to students", students_path, class: "btn btn-secondary" %>
-
-  <%= button_to "Destroy this student", @student, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete this student?" } %>
+  <%= link_to "Edit this student", edit_student_path(@student), class: "btn btn-primary", aria: {label: 'Edit this student'} %>
+  <%= link_to "Back to search", students_path, class: "btn btn-secondary", aria: {label: "Back to search"} %>
+  <%= button_to "Destroy this student", @student, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete this student?" }, aria: {label: "Destroy this student"} %>
 </div>

@@ -3,6 +3,6 @@
 <br>
 
 <div class="mt-3">
-  <%= link_to "Show this student", @student, class: "btn btn-success" %> |
-  <%= link_to "Back to students", students_path, class: "btn btn-secondary" %>
+  <%= link_to "Show this student", @student, class: "btn btn-success", aria: {label: 'Show this student'} %> |
+  <%= link_to "Back to search", students_path, class: "btn btn-secondary", aria: {label: 'Back to search'} %>
 </div>
