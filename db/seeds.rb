@@ -33,8 +33,7 @@ end
    first_name: random_name,
    last_name: random_name,
    school_email: "student#{i + 1}@msudenver.edu",
-   #major: Student::VALID_MAJORS.sample, # Assuming you have a VALID_MAJORS constant
-   major: "major #{i + 1}",
+   major: Student::VALID_MAJORS.sample, # Assuming you have a VALID_MAJORS constant
    graduation_date: Faker::Date.between(from: 2.years.ago, to: 2.years.from_now),
   
  )
