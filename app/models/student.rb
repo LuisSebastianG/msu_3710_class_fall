@@ -1,5 +1,5 @@
 class Student < ApplicationRecord
-    has_one_attached :profile_picture
+    has_one_attached :profile_picture, dependent: :purge_later
 
     validates :first_name, presence: true, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
     validates :last_name, presence: true, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }

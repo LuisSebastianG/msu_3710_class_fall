@@ -50,6 +50,9 @@ group :development, :test do
 
   # Rspec install https://github.com/rspec/rspec-rails/tree/6-0-maintenance
   gem 'rspec-rails', '~> 6.0.0'
+
+  # faker install https://github.com/faker-ruby/faker
+  gem 'faker'
 end
 
 group :development do
