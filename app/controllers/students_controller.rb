@@ -6,11 +6,11 @@ class StudentsController < ApplicationController
     Rails.logger.info "Params: #{params.inspect}"
 
     @search_params = params[:search] || {}
-    @students = Student.all
 
     Rails.logger.info "Search Params: #{@search_params.inspect}"
 
     if @search_params[:major].present?
+      @students = Student.all
       @students = @students.where(major: @search_params[:major])
     end
   end
