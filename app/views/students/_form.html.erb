@@ -44,10 +44,17 @@
   </div>
   
   <div class="form-group">
-    <%= form.label :graduation_date, 'Graduation Date', class: "d-block", aria: {label: 'Enter Graduation Date'} %>
-    <%= form.date_field :graduation_date, class: "form-control", aria: {labelledby: 'Graduation Date'} %>
+    <%= form.label :graduation_date, 'Graduation Date', class: "form-label", aria: {label: 'Enter Graduation Date'} %>
+    <%= form.date_field :graduation_date, name: 'search[graduation_date]', class: "form-control", aria: {labelledby: 'Graduation Date'} %>
   </div>
-  
+
+  <div class="form-group">
+    <%= form.label :filter_type, 'Filter By', class: 'form-label d-block' %>
+    <%= form.radio_button :filter_type, 'any', class: 'form-check-input', checked: true %> Any
+    <%= form.radio_button :filter_type, 'before', class: 'form-check-input' %> Before
+    <%= form.radio_button :filter_type, 'after', class: 'form-check-input' %> After
+  </div>
+
   <div class="form-group">
     <%= form.submit 'Submit', class: "btn btn-info", aria: {label: 'Submit form'} %>
   </div>
