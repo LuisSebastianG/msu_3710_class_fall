@@ -7,7 +7,7 @@ class StudentsController < ApplicationController
     @search_params = params[:search] || {}
     @students = Student.none
     Rails.logger.info "Search Params: #{@search_params.inspect}"
-
+  
     if @search_params.present?
       @students = Student.all
   
@@ -17,7 +17,9 @@ class StudentsController < ApplicationController
   
       if @search_params[:graduation_date].present?
         graduation_date = @search_params[:graduation_date]
-        filter_type = @search_params[:filter_type]
+        filter_type = params[:filter_type]
+  
+        Rails.logger.info "Graduation Date: #{graduation_date}, Filter Type: #{filter_type}"
   
         case filter_type
         when 'before'
@@ -27,6 +29,8 @@ class StudentsController < ApplicationController
         when 'any'
           @students = @students.where('graduation_date = ?', graduation_date)
         end
+  
+        Rails.logger.info "Filtered Students: #{@students.inspect}"
       end
     end
   end
