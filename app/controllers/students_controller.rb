@@ -8,7 +8,9 @@ class StudentsController < ApplicationController
     @students = Student.none
     Rails.logger.info "Search Params: #{@search_params.inspect}"
   
-    if @search_params.present?
+    if params[:show_all]
+      @students = Student.all
+    elsif @search_params.present? && !@search_params.values.all?(&:blank?)
       @students = Student.all
   
       if @search_params[:major].present?
